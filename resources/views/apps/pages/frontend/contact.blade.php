@@ -14,7 +14,7 @@
                     </div>
                     <div class="space-y-2 text-sm sm:text-[1rem] text-center">
                         <p class="font-semibold">Email</p>
-                        <p>contact@logisticafrica.com</p>
+                        <p>{{ $appBasics->email }}</p>
                     </div>
                 </div>
 
@@ -24,7 +24,7 @@
                     </div>
                     <div class="space-y-2 text-sm sm:text-[1rem] text-center">
                         <p class="font-semibold">Téléphone</p>
-                        <p>+229 0148655555</p>
+                        <p>{{ $appBasics->contact }}</p>
                     </div>
                 </div>
 

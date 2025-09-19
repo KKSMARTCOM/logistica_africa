@@ -19,7 +19,7 @@
         @if ($partners)
             <div id="partner-carroussel" class="container mx-auto flex justify-center h-[50px] gap-2">
                 @foreach ($partners as $item)
-                    <img src="{{ asset($item->image ?? 'assets/images/logos/sponsor1.png') }}"
+                    <img src="{{ asset('storage/' . $item->image ?? 'assets/images/brand/photo.png') }}"
                         class="mx-4 w-16 object-contain" alt="Partner Logo">
                 @endforeach
             </div>

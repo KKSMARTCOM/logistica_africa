@@ -25,8 +25,7 @@
             </div>
         </div> --}}
         <div class="page_header_bottom_right">
-            <a href="javascript:void(0)" data-bs-toggle="sidebar-right" data-target=".add-posts-form"
-                class="btn btn-primary">Ajouter</a>
+            <a href="{{ route('panel.posts.create') }}" class="btn btn-primary">Ajouter</a>
         </div>
     </div>
 
@@ -68,7 +67,8 @@
                                             </td>
                                             <td>
                                                 <div class="table-btn">
-                                                    <a href="" class="text-secondary">Modifier</a>
+                                                    <a href="{{ route('panel.posts.edit', $item->id) }}"
+                                                        class="text-secondary">Modifier</a>
 
                                                     <a href="javascript:void(0);" data-bs-toggle="modal"
                                                         data-bs-target="#deleteModal{{ $item->id }}"

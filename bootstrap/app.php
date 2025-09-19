@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -11,7 +12,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        $middleware->alias(
+            ['auth-admin' => AdminMiddleware::class]
+        );
     })
     ->withExceptions(function (Exceptions $exceptions) {
         $exceptions->render(function (\Symfony\Component\HttpKernel\Exception\NotFoundHttpException $e, $request) {
@@ -26,7 +29,7 @@ return Application::configure(basePath: dirname(__DIR__))
             if ($e->getStatusCode() === 401) {
                 return response()->view('errors.401', [], 401);
             }
-
+            dd($e);
             return response()->view('errors.default', ['message' => $e->getMessage()], $e->getStatusCode());
         });
 

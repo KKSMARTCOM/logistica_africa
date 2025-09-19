@@ -1,23 +1,23 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
-@section('title', 'Gestion des Partenaires')
+@section('title', 'Gestion des Messages')
 
-@section('header', 'Gestion des Partenaires')
+@section('header', 'Gestion des Messages')
 
 @section('content')
     <!-- PAGE-HEADER -->
     <div class="page-header">
-        <h1 class="page-title">Liste des Partenaires</h1>
+        <h1 class="page-title">Liste des Messages</h1>
         <div>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Accueil</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Liste des Partenaires</li>
+                <li class="breadcrumb-item active" aria-current="page">Liste des Messages</li>
             </ol>
         </div>
     </div>
     <!-- PAGE-HEADER END -->
 
-    <div class="page_header_bottom">
+    {{-- <div class="page_header_bottom">
         <div class="page_header_bottom_left">
             <div class="page_header_bottom_left_input">
                 <input type="text" class="form-control" id="typehead" placeholder="Rechercher..." autocomplete="off">
@@ -28,7 +28,7 @@
             <a href="javascript:void(0);" data-bs-toggle="sidebar-right" data-target=".add-partners-form"
                 class="btn btn-primary">Ajouter</a>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Row -->
     <div class="row">
@@ -36,14 +36,14 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    @if ($partners && $partners->count() > 0)
+                    @if ($messages && $messages->count() > 0)
                         <div class="table-responsive">
                             <table class="table border text-nowrap text-md-nowrap table-hover mb-0">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Logo</th>
-                                        <th>Nom</th>
+                                        <th>Email</th>
+                                        <th>Objet</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -51,22 +51,18 @@
                                     @php
                                         $id = 1;
                                     @endphp
-                                    @foreach ($partners as $item)
+                                    @foreach ($messages as $item)
                                         <tr>
                                             <td>{{ $id++ }}</td>
                                             <td>
-                                                <div class="partner-image-circle">
-                                                    <img src="{{ asset('storage/' . $item->logo) }}"
-                                                        alt="{{ $item->name }}" title="{{ $item->name }}">
-
-                                                </div>
+                                                {{ $item->email }}
                                             </td>
-                                            <td>{{ $item->name }}</td>
+                                            <td>{{ $item->subject }}</td>
                                             <td>
                                                 <div class="table-btn">
                                                     <a href="javascript:void(0);" data-bs-toggle="sidebar-right"
-                                                        data-target="#editpartner{{ $item->id }}"
-                                                        class="text-secondary">Modifier</a>
+                                                        data-target="#view-message{{ $item->id }}"
+                                                        class="text-secondary">Voir plus</a>
 
                                                     <a href="javascript:void(0);" data-bs-toggle="modal"
                                                         data-bs-target="#deleteModal{{ $item->id }}"
@@ -75,14 +71,13 @@
                                             </td>
                                         </tr>
 
+                                        @include('apps.modals.messages.view')
 
                                         @include('apps.modals.delete', [
                                             'id' => $item->id,
-                                            'route' => route('Panel::partners.destroy', $item->id),
-                                            'message' => 'le partenaire',
+                                            'route' => route('panel.contacts.destroy', $item->id),
+                                            'message' => 'le message',
                                         ])
-
-                                        @include('apps.modals.partners.edit')
                                     @endforeach
                                 </tbody>
                             </table>
@@ -93,6 +88,4 @@
         </div>
     </div>
     <!-- End Row -->
-
-    @include('apps.modals.partners.add')
 @endsection

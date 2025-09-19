@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
 @section('title', 'Gestion des articles')
 
@@ -8,17 +8,17 @@
     <!-- PAGE-HEADER -->
     <div class="page-header">
         @if (!empty($post->id))
-            <h1 class="page-title">Modifier FAQ</h1>
+            <h1 class="page-title">Modifier l'article</h1>
         @else
-            <h1 class="page-title">Ajouter FAQ</h1>
+            <h1 class="page-title">Ajouter l'article</h1>
         @endif
         <div>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Accueil</a></li>
                 @if (!empty($post->id))
-                    <li class="breadcrumb-item active" aria-current="page">Modifier FAQ</li>
+                    <li class="breadcrumb-item active" aria-current="page">Modifier l'article</li>
                 @else
-                    <li class="breadcrumb-item active" aria-current="page">Ajouter FAQ</li>
+                    <li class="breadcrumb-item active" aria-current="page">Ajouter l'article</li>
                 @endif
             </ol>
         </div>
@@ -29,19 +29,18 @@
     <div class="row bg-white pt-4 pb-4" style="border-radius: 10px">
         @if (!empty($post->id))
             @php
-                $routeLink = route('Panel::posts.update', $post->id);
+                $routeLink = route('panel.posts.update', $post->id);
             @endphp
         @else
             @php
-                $routeLink = route('Panel::posts.store');
+                $routeLink = route('panel.posts.store');
             @endphp
         @endif
 
-        @if (isset($post->image))
-            <div class="if-image">
-                <div class="form-image-container">
-                    <img src="{{ asset('storage/' . $post->image) }}" class="form-image" alt="Article image">
-                </div>
+        @if (isset($post->cover_image))
+            <div>
+                <img src="{{ asset('storage/' . $post->cover_image ?? 'assets/images/brand/photo.png') }}" alt="Image"
+                    class="img-thumbnail mb-2" width="150">
             </div>
         @endif
 
@@ -78,31 +77,30 @@
                                 <option label="Veuillez choisir le statut de l'article"></option>
                                 <option {{ isset($post->id) && $post->status == 'draft' ? 'selected' : '' }} selected
                                     value="draft">Brouillon</option>
-                                <option {{ isset($post->id) && $post->status == 'published' ? 'selected' : '' }}
-                                    value="published">Publié</option>
-                                <option {{ isset($post->id) && $post->status == 'archived' ? 'selected' : '' }}
-                                    value="archived">Archivé</option>
+                                <option {{ isset($post->id) && $post->status == 'publish' ? 'selected' : '' }}
+                                    value="publish">Publié</option>
+                                <option {{ isset($post->id) && $post->status == 'archive' ? 'selected' : '' }}
+                                    value="archive">Archivé</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="image" class="form-label">Image</label>
-                            <input class="form-control" name="image" type="file">
+                            <label for="cover_image" class="form-label">Image</label>
+                            <input class="form-control" name="cover_image" type="file">
                         </div>
                     </div>
                 </div>
 
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="excerpt" class="form-label">Résumé</label>
                     <textarea class="form-control mb-4" name="excerpt" placeholder="Veuillez entrer le résumé de l'article" rows="4">{{ $post->excerpt ?? '' }}</textarea>
-                </div>
+                </div> --}}
 
                 <div class="form-group">
                     <label for="content" class="form-label">Description</label>
                     <textarea id="summernote" name="content"> {!! $post->content ?? 'Veuillez entrer la description de l\'article' !!} </textarea>
                 </div>
-
             </div>
             <div class="pe-4 ps-4">
                 <div class="col-lg">

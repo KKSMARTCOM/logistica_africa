@@ -17,17 +17,17 @@ class Machine extends Model
         'image',
         'additionnal_images',
         'price',
-        'model',
-        'capacity',
-        'productor_name',
-        'production_year',
-        'technical_sheet',
+        'characteristics',
         'category_id'
     ];
 
     protected $table = 'machines';
 
     protected $primaryKey = 'id';
+
+    protected $casts = [
+        'characteristics' => 'array',
+    ];
 
     public function category()
     {

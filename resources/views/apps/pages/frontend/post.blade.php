@@ -14,7 +14,8 @@
             <p class="text-xs sm:text-[0.9rem] text-gray-600">{{ $post->views }} vues</p>
         </div>
         <div class="h-[400px] overflow-hidden rounded-lg mb-6">
-            <img src="{{ asset($post->cover_image) }}" class="w-full h-full object-contain" alt="">
+            <img src="{{ asset('storage/' . $post->cover_image ?? 'assets/images/brand/photo.png') }}"
+                class="w-full h-full object-contain" alt="">
         </div>
         <div class="block md:flex gap-4">
             <div class="w-full md:w-2/3">

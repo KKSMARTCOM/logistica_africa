@@ -10,10 +10,10 @@
             <span id="openSidebar" class="mdi mdi-menu text-3xl text-[#333333] cursor-pointer"></span>
         </div>
 
-        <div class="w-[10rem] md:w-[8rem] -mb-[.5rem] block md:hidden">
+        <a href="{{ route('view.home') }}" class="w-[10rem] md:w-[8rem] -mb-[.5rem] block md:hidden">
             <img src="{{ asset('assets/images/brand/logo-compact-noir.png') }}" alt="Logo"
                 class="w-full h-full object-contain transition ease-out duration-300">
-        </div>
+        </a>
 
         <div class="w-full md:flex justify-start md:w-1/3 hidden">
             <div class="relative w-full">

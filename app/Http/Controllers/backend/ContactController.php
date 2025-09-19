@@ -18,7 +18,9 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $messages = Contact::latest()->paginate(10);
+
+        return view('apps.pages.backend.messages.index', compact('messages'));
     }
 
     /**
@@ -110,6 +112,16 @@ class ContactController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $message = Contact::findOrFail($id);
+
+            // Supprimer l'enregistrement
+            $message->delete();
+
+            return redirect()->back()->with('success', 'Message supprimé avec succès !');
+        } catch (\Throwable $e) {
+            Log::error('Erreur lors de la suppression : ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Une erreur est survenue lors de la suppression.');
+        }
     }
 }

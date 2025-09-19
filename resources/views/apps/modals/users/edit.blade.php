@@ -1,5 +1,5 @@
 <!-- Sidebar-right -->
-<div class="sidebar sidebar-right sidebar-animate" id="update-users-form{{ 1 }}">
+<div class="sidebar sidebar-right sidebar-animate" id="update-users-form{{ $item->id }}">
     <div class="panel panel-primary card mb-0 shadow-none border-0">
         <div class="tab-menu-heading border-0 d-flex p-3">
             <div class="card-title mb-0">Modifier les informations d'un administrateur</div>
@@ -10,35 +10,30 @@
             </div>
         </div>
         <div class="panel-body tabs-menu-body latest-tasks p-0 border-0">
-            <form action="" method="POST">
+            <form action="{{ route('panel.users.update', $item->id) }}" method="POST">
                 @csrf
 
                 @method('PUT')
 
                 <div class="pe-4 ps-4">
                     <div class="form-group">
-                        <label for="last_name" class="form-label">Nom (optionnel)</label>
-                        <input type="text" name="last_name" class="form-control" id="last_name"
-                            placeholder="Veuillez entrer le nom" value="" autocomplete="last_name">
-                    </div>
-                    <div class="form-group">
-                        <label for="first_name" class="form-label">Prénoms (optionnel)</label>
-                        <input type="text" name="first_name" class="form-control" id="first_name"
-                            placeholder="Veuillez entrer le prénom" value="" autocomplete="first_name">
+                        <label for="name" class="form-label">Nom d'utilisateur (optionnel)</label>
+                        <input type="text" name="name" class="form-control" id="name"
+                            placeholder="Veuillez entrer le nom" value="{{ old('name', $item->name) }}"
+                            autocomplete="name">
                     </div>
                     <div class="form-group">
                         <label for="email" class="form-label">Email <span class="text-red">*</span></label>
                         <input type="email" name="email" class="form-control" id="email"
-                            placeholder="Veuillez entrez l'adresse email" value="" readonly autocomplete="email">
+                            placeholder="Veuillez entrez l'adresse email" value="{{ old('email', $item->email) }}"
+                            readonly autocomplete="email">
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Statut <span class="text-red">*</span></label>
-                        <select class="form-control form-select select2" name="is_suspended"
-                            data-bs-placeholder="Select">
-                            <option label="Veuillez choisir le statut"></option>
-                            <option value="0">
+                        <label for="status-{{ $item->id }}" class="form-label">Statut </label>
+                        <select class="form-control form-select select2" name="status" id="status-{{ $item->id }}">
+                            <option value="1" {{ old('status', $item->status) == 1 ? 'selected' : '' }}>
                                 Actif</option>
-                            <option value="1">
+                            <option value="0" {{ old('status', $item->status) == 0 ? 'selected' : '' }}>
                                 Inactif</option>
                         </select>
                     </div>

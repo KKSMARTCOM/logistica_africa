@@ -205,74 +205,74 @@
 
     // ______________ SWITCHER-toggle ______________//
 
-	$('.layout-setting').on("click", function(e) {
-		if (!(document.querySelector('body').classList.contains('dark-mode'))) {
-			$('body').addClass('dark-mode');
-			$('body').removeClass('light-mode');
-			$('body').removeClass('transparent-mode');
+    $('.layout-setting').on("click", function (e) {
+        if (!(document.querySelector('body').classList.contains('dark-mode'))) {
+            $('body').addClass('dark-mode');
+            $('body').removeClass('light-mode');
+            $('body').removeClass('transparent-mode');
 
-			localStorage.setItem('sashdarkMode', true);
-			localStorage.removeItem('sashlightMode');
-			localStorage.removeItem('sashtransparentMode');
-		} else {
-			$('body').removeClass('dark-mode');
-			$('body').addClass('light-mode');
+            localStorage.setItem('sashdarkMode', true);
+            localStorage.removeItem('sashlightMode');
+            localStorage.removeItem('sashtransparentMode');
+        } else {
+            $('body').removeClass('dark-mode');
+            $('body').addClass('light-mode');
 
-			localStorage.setItem('sashlightMode', true);
-			localStorage.removeItem('sashtransparentMode');
-			localStorage.removeItem('sashdarkMode');
-		}
-	});
+            localStorage.setItem('sashlightMode', true);
+            localStorage.removeItem('sashtransparentMode');
+            localStorage.removeItem('sashdarkMode');
+        }
+    });
 
 
     /******* Theme Style ********/
 
-	//---- Light mode ----- //
-	// $('body').addClass('light-mode');
-	// $('body').removeClass('transparent-mode');
-	// $('body').removeClass('dark-mode');
+    //---- Light mode ----- //
+    // $('body').addClass('light-mode');
+    // $('body').removeClass('transparent-mode');
+    // $('body').removeClass('dark-mode');
 
-	//---- Dark mode ----- //
-	// $('body').addClass('dark-mode');
-	// $('body').removeClass('light-mode');
-	// $('body').removeClass('transparent-mode');
+    //---- Dark mode ----- //
+    // $('body').addClass('dark-mode');
+    // $('body').removeClass('light-mode');
+    // $('body').removeClass('transparent-mode');
 
-	//---- Transparent mode ----//
-	// $('body').addClass('transparent-mode');
-	// $('body').removeClass('light-mode');
-	// $('body').removeClass('dark-mode');
-
-
-	/******* Transparent Bg-Image Style *******/
-
-	// Bg-Image1 Style
-	// $('body').addClass('bg-img1');
-	// $('body').addClass('transparent-mode');
-	// $('body').removeClass('light-mode');
-	// $('body').removeClass('dark-mode');
-
-	// Bg-Image2 Style
-	// $('body').addClass('bg-img2');
-	// $('body').addClass('transparent-mode');
-	// $('body').removeClass('light-mode');
-	// $('body').removeClass('dark-mode');
-
-	// Bg-Image3 Style
-	// $('body').addClass('bg-img3');
-	// $('body').addClass('transparent-mode');
-	// $('body').removeClass('light-mode');
-	// $('body').removeClass('dark-mode');
-
-	// Bg-Image4 Style
-	// $('body').addClass('bg-img4');
-	// $('body').addClass('transparent-mode');
-	// $('body').removeClass('light-mode');
-	// $('body').removeClass('dark-mode');
+    //---- Transparent mode ----//
+    // $('body').addClass('transparent-mode');
+    // $('body').removeClass('light-mode');
+    // $('body').removeClass('dark-mode');
 
 
-	/******* RTL VERSION *******/
+    /******* Transparent Bg-Image Style *******/
 
-	// $('body').addClass('rtl');
+    // Bg-Image1 Style
+    // $('body').addClass('bg-img1');
+    // $('body').addClass('transparent-mode');
+    // $('body').removeClass('light-mode');
+    // $('body').removeClass('dark-mode');
+
+    // Bg-Image2 Style
+    // $('body').addClass('bg-img2');
+    // $('body').addClass('transparent-mode');
+    // $('body').removeClass('light-mode');
+    // $('body').removeClass('dark-mode');
+
+    // Bg-Image3 Style
+    // $('body').addClass('bg-img3');
+    // $('body').addClass('transparent-mode');
+    // $('body').removeClass('light-mode');
+    // $('body').removeClass('dark-mode');
+
+    // Bg-Image4 Style
+    // $('body').addClass('bg-img4');
+    // $('body').addClass('transparent-mode');
+    // $('body').removeClass('light-mode');
+    // $('body').removeClass('dark-mode');
+
+
+    /******* RTL VERSION *******/
+
+    // $('body').addClass('rtl');
 
     let bodyRtl = $('body').hasClass('rtl');
     if (bodyRtl) {
@@ -292,49 +292,49 @@
             carouselData.options.rtl = true;
             $(element).trigger('refresh.owl.carousel');
         });
-    } 
+    }
 
 
-	/******* Header Styles ********/
+    /******* Header Styles ********/
 
-	// $('body').addClass('header-light');
-	// $('body').addClass('color-header');
-	// $('body').addClass('dark-header');
-	// $('body').addClass('gradient-header');
-
-
-	/******* Menu Styles ********/
-
-	// $('body').addClass('light-menu');	
-	// $('body').addClass('color-menu');
-	// $('body').addClass('dark-menu');
-	// $('body').addClass('gradient-menu');
+    // $('body').addClass('header-light');
+    // $('body').addClass('color-header');
+    // $('body').addClass('dark-header');
+    // $('body').addClass('gradient-header');
 
 
-	/******* Full Width Layout Start ********/
+    /******* Menu Styles ********/
 
-	// $('body').addClass('layout-boxed'); 
-	
-
-	/******** *Header-Position Styles Start* ********/
-
-	// $('body').addClass('scrollable-layout');
+    // $('body').addClass('light-menu');	
+    // $('body').addClass('color-menu');
+    // $('body').addClass('dark-menu');
+    // $('body').addClass('gradient-menu');
 
 
-	/******* Navigation Style *******/
+    /******* Full Width Layout Start ********/
 
-	// ***** Horizontal Click Menu ***** //
+    // $('body').addClass('layout-boxed'); 
 
-	// $('body').addClass('horizontal');
+
+    /******** *Header-Position Styles Start* ********/
+
+    // $('body').addClass('scrollable-layout');
+
+
+    /******* Navigation Style *******/
+
+    // ***** Horizontal Click Menu ***** //
+
+    // $('body').addClass('horizontal');
 
     let bodyhorizontal = $('body').hasClass('horizontal');
     if (bodyhorizontal) {
-        if( !document.querySelector('.login-img') ){
+        if (!document.querySelector('.login-img')) {
             ActiveSubmenu();
             checkHoriMenu();
             responsive();
         }
-        if(window.innerWidth>=992){
+        if (window.innerWidth >= 992) {
             let li = document.querySelectorAll('.side-menu li')
             li.forEach((e, i) => {
                 e.classList.remove('is-expanded')
@@ -374,12 +374,12 @@
         // $('#slide-left').addClass('d-none');
         // $('#slide-right').addClass('d-none');
         // document.querySelector('.horizontal .side-menu').style.flexWrap = 'wrap'
-        
-    } 
 
-	// ***** Horizontal Hover Menu ***** //
+    }
 
-	// $('body').addClass('horizontal-hover');
+    // ***** Horizontal Hover Menu ***** //
+
+    // $('body').addClass('horizontal-hover');
 
     function light() {
         if (document.querySelector('body').classList.contains('light-mode')) {
@@ -390,11 +390,11 @@
     light();
     let bodyhorizontalHover = $('body').hasClass('horizontal-hover');
     if (bodyhorizontalHover) {
-        if( !document.querySelector('.login-img') ){
+        if (!document.querySelector('.login-img')) {
             checkHoriMenu();
             responsive();
         }
-        if(window.innerWidth>=992){
+        if (window.innerWidth >= 992) {
             let li = document.querySelectorAll('.side-menu li')
             li.forEach((e, i) => {
                 e.classList.remove('is-expanded')
@@ -434,36 +434,69 @@
         $('body').removeClass('hover-submenu1');
     }
 
-	// Sidemenu layout Styles //
+    // Sidemenu layout Styles //
 
-	// ***** Icon with Text *****//
-	// $('body').addClass('icontext-menu');
-	// $('body').addClass('sidenav-toggled');
-	// if(document.querySelector('.icontext-menu').firstElementChild.classList.contains('login-img') !== true){
-	// icontext();
-	// }
+    // ***** Icon with Text *****//
+    // $('body').addClass('icontext-menu');
+    // $('body').addClass('sidenav-toggled');
+    // if(document.querySelector('.icontext-menu').firstElementChild.classList.contains('login-img') !== true){
+    // icontext();
+    // }
 
-	// ***** Icon Overlay ***** //
-	// $('body').addClass('icon-overlay');
-	// $('body').addClass('sidenav-toggled');
+    // ***** Icon Overlay ***** //
+    // $('body').addClass('icon-overlay');
+    // $('body').addClass('sidenav-toggled');
 
-	// ***** closed-leftmenu ***** //
-	// $('body').addClass('closed-leftmenu');
-	// $('body').addClass('sidenav-toggled')
+    // ***** closed-leftmenu ***** //
+    // $('body').addClass('closed-leftmenu');
+    // $('body').addClass('sidenav-toggled')
 
-	// ***** hover-submenu ***** //
-	// $('body').addClass('hover-submenu');
-	// $('body').addClass('sidenav-toggled')
-	// if(document.querySelector('.hover-submenu').firstElementChild.classList.contains('login-img') !== true){
-	// hovermenu();
-	// }
+    // ***** hover-submenu ***** //
+    // $('body').addClass('hover-submenu');
+    // $('body').addClass('sidenav-toggled')
+    // if(document.querySelector('.hover-submenu').firstElementChild.classList.contains('login-img') !== true){
+    // hovermenu();
+    // }
 
-	// ***** hover-submenu style 1 ***** //
-	// $('body').addClass('hover-submenu1');
-	// $('body').addClass('sidenav-toggled')
-	// if(document.querySelector('.hover-submenu1').firstElementChild.classList.contains('login-img') !== true){
-	// hovermenu();
-	// }
+    // ***** hover-submenu style 1 ***** //
+    // $('body').addClass('hover-submenu1');
+    // $('body').addClass('sidenav-toggled')
+    // if(document.querySelector('.hover-submenu1').firstElementChild.classList.contains('login-img') !== true){
+    // hovermenu();
+    // }
+
+
+    //My Custom
+    $(document).ready(function () {
+        // Fonction pour ajouter une nouvelle ligne de caractéristique
+        function addCharacteristic(wrapper, index) {
+            let html = `
+        <div class="row mb-2 characteristic-item">
+            <div class="col-md-5">
+                <input type="text" name="characteristics[${index}][label]" class="form-control" placeholder="Libellé">
+            </div>
+            <div class="col-md-5">
+                <input type="text" name="characteristics[${index}][value]" class="form-control" placeholder="Valeur">
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-danger remove-char">X</button>
+            </div>
+        </div>`;
+            $(wrapper).append(html);
+        }
+
+        // Gestion des boutons Ajouter pour toutes les modals
+        $(document).on('click', '#add-characteristic, #add-char', function () {
+            let wrapper = $(this).siblings('#characteristics-wrapper');
+            let index = $(wrapper).find('.characteristic-item').length;
+            addCharacteristic(wrapper, index);
+        });
+
+        // Supprimer une caractéristique
+        $(document).on('click', '.remove-char', function () {
+            $(this).closest('.characteristic-item').remove();
+        });
+    });
 
 
 })(jQuery);

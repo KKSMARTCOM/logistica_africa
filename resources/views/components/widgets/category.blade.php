@@ -1,7 +1,7 @@
 <section class="container px-[1rem] md:px-[0px] lg:px-[3rem] mx-auto my-[2.5rem] md:my-[5rem]">
     <div class="grid grid-cols-1 md:grid-cols-2">
         @foreach ($categories as $item)
-            <div style="background:url('{{ asset($item->image ?? 'assets/images/brand/machine2.jpg') }}') center; background-repeat: no-repeat; background-size: cover;"
+            <div style="background:url('{{ asset('storage/' . $item->image ?? 'assets/images/brand/machine2.jpg') }}') center; background-repeat: no-repeat; background-size: cover;"
                 class="h-[300px] relative">
                 <div class="h-full w-full bg-black opacity-80"></div>
 

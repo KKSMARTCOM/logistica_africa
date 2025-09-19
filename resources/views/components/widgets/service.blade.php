@@ -27,7 +27,7 @@
 
                 <!-- Image de fond + filtre noir -->
                 <div class="absolute inset-0 bg-cover bg-center"
-                    style="background-image: url('{{ asset($item->image) }}');">
+                    style="background-image: url('{{ asset('storage/' . $item->image ?? 'assets/images/brand/photo.png') }}');">
                     <div class="absolute inset-0 bg-black/50"></div>
                 </div>
 

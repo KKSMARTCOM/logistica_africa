@@ -27,10 +27,17 @@
                             bord</span></a>
                 </li>
 
-                <li class="slide">
+                {{--  <li class="slide">
                     <a class="side-menu__item has-link " data-bs-toggle="slide" href=""><i
                             class="side-menu__icon mdi mdi-calculator"></i><span class="side-menu__label">Demandes de
                             devis</span></a>
+                </li> --}}
+
+                <li class="slide">
+                    <a class="side-menu__item has-link {{ Request::is('panel/categories') ? 'active' : '' }}"
+                        data-bs-toggle="slide" href="{{ route('panel.categories.index') }}"><i
+                            class="side-menu__icon mdi mdi-file"></i><span
+                            class="side-menu__label">Catégories</span></a>
                 </li>
 
                 <li class="slide">
@@ -40,32 +47,43 @@
                 </li>
 
                 <li class="slide">
-                    <a class="side-menu__item has-link {{ Request::is('panel/posts') ? 'active' : '' }}"
+                    <a class="side-menu__item has-link {{ Request::is('panel/posts*') ? 'active' : '' }}"
                         data-bs-toggle="slide" href="{{ route('panel.posts.index') }}"><i
                             class="side-menu__icon mdi mdi-newspaper"></i><span
                             class="side-menu__label">Actualités</span></a>
                 </li>
 
                 <li class="slide">
-                    <a class="side-menu__item has-link " data-bs-toggle="slide" href=""><i
+                    <a class="side-menu__item has-link {{ Request::is('panel/contacts*') ? 'active' : '' }}"
+                        data-bs-toggle="slide" href="{{ route('panel.contacts.index') }}"><i
                             class="side-menu__icon mdi mdi-message"></i><span
                             class="side-menu__label">Messages</span></a>
                 </li>
 
                 <li class="slide">
-                    <a class="side-menu__item has-link " data-bs-toggle="slide" href=""><i
+                    <a class="side-menu__item has-link {{ Request::is('panel/testimonials*') ? 'active' : '' }}"
+                        data-bs-toggle="slide" href="{{ route('panel.testimonials.index') }}"><i
                             class="side-menu__icon mdi mdi-format-quote-close"></i><span
                             class="side-menu__label">Témoignages</span></a>
                 </li>
 
                 <li class="slide">
-                    <a class="side-menu__item has-link " data-bs-toggle="slide" href=""><i
+                    <a class="side-menu__item has-link {{ Request::is('panel/services*') ? 'active' : '' }}"
+                        data-bs-toggle="slide" href="{{ route('panel.services.index') }}"><i
                             class="side-menu__icon mdi mdi-briefcase"></i><span
                             class="side-menu__label">Services</span></a>
                 </li>
 
                 <li class="slide">
-                    <a class="side-menu__item has-link " data-bs-toggle="slide" href=""><i
+                    <a class="side-menu__item has-link {{ Request::is('panel/partners*') ? 'active' : '' }}"
+                        data-bs-toggle="slide" href="{{ route('panel.partners.index') }}"><i
+                            class="side-menu__icon mdi mdi-briefcase"></i><span
+                            class="side-menu__label">Partenaires</span></a>
+                </li>
+
+                <li class="slide">
+                    <a class="side-menu__item has-link {{ Request::is('panel/values*') ? 'active' : '' }}"
+                        data-bs-toggle="slide" href="{{ route('panel.values.index') }}"><i
                             class="side-menu__icon mdi mdi-bullhorn"></i><span
                             class="side-menu__label">Valeurs</span></a>
                 </li>
@@ -78,16 +96,10 @@
                 </li>
 
                 <li class="slide">
-                    <a class="side-menu__item " data-bs-toggle="slide" href="javascript:void(0)"><i
+                    <a class="side-menu__item has-link {{ Request::is('panel/settings') ? 'active' : '' }}"
+                        data-bs-toggle="slide" href="{{ route('panel.settings.index') }}"><i
                             class="side-menu__icon mdi mdi-settings"></i><span
-                            class="side-menu__label">Paramètres</span><i class="angle fe fe-chevron-right"></i></a>
-                    <ul class="slide-menu">
-                        <li class="side-menu-label1"><a href="javascript:void(0)">Paramètres</a></li>
-                        <li><a href="" class="slide-item ">Profil</a>
-                        </li>
-                        <li><a href="" class="slide-item ">Général</a>
-                        </li>
-                    </ul>
+                            class="side-menu__label">Paramètres</span></a>
                 </li>
 
             </ul>

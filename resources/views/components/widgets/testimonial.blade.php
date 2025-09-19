@@ -21,7 +21,7 @@
             <div class="space-y-4 p-4 text-sm sm:text-[1rem] bg-gray-200 rounded-md mx-4">
                 <div class="flex items-center gap-4">
                     <div class="w-[4rem] h-[4rem] overflow-hidden rounded-full">
-                        <img src="{{ asset($item->image ?? 'assets/images/brand/account.png') }}"
+                        <img src="{{ asset('storage/' . $item->image ?? 'assets/images/brand/photo.png') }}"
                             class="w-full h-full object-cover" alt="Avatar">
                     </div>
                     <h2 class="font-semibold">{{ $item->name }}</h2>

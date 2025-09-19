@@ -40,10 +40,8 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Nom</th>
-                                    <th>Prénoms</th>
+                                    <th>Nom d'utilisateur</th>
                                     <th>Email</th>
-                                    <th>Rôle</th>
                                     <th>Statut</th>
                                     <th>Actions</th>
                                 </tr>
@@ -52,33 +50,36 @@
                                 @php
                                     $id = 1;
                                 @endphp
-                                <tr>
-                                    <td>1</td>
-                                    <td>{{ 'N/A' }}</td>
-                                    <td>{{ 'N/A' }}</td>
-                                    <td>{{ 'N/A' }}</td>
-                                    <td>{{ 'N/A' }}</td>
-                                    <td>
-                                        <span class="badge bg-danger badge-sm  me-1 mb-1 mt-1">Inactif</span>
-                                        <span class="badge bg-success badge-sm  me-1 mb-1 mt-1">Actif</span>
-                                    </td>
-                                    <td>
-                                        <div class="table-btn">
-                                            <a href="javascript:void(0);" data-bs-toggle="sidebar-right"
-                                                data-target="#update-users-form{{ 1 }}"
-                                                class="text-secondary">Modifier</a>
+                                @foreach ($users as $item)
+                                    <tr>
+                                        <td>{{ $id++ }}</td>
+                                        <td>{{ $item->name ?? 'N/A' }}</td>
+                                        <td>{{ $item->email ?? 'N/A' }}</td>
+                                        <td>
+                                            @if ($item->status)
+                                                <span class="badge bg-success badge-sm  me-1 mb-1 mt-1">Actif</span>
+                                            @else
+                                                <span class="badge bg-danger badge-sm  me-1 mb-1 mt-1">Inactif</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <div class="table-btn">
+                                                <a href="javascript:void(0);" data-bs-toggle="sidebar-right"
+                                                    data-target="#update-users-form{{ $item->id }}"
+                                                    class="text-secondary">Modifier</a>
 
-                                            <a href="javascript:void(0);" data-bs-toggle="modal"
-                                                data-bs-target="#deleteModal{{ 1 }}"
-                                                class="text-danger">Supprimer</a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                                <a href="javascript:void(0);" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteModal{{ $item->id }}"
+                                                    class="text-danger">Supprimer</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
 
                                 @include('apps.modals.users.edit')
                                 @include('apps.modals.delete', [
-                                    'id' => 1,
-                                    'route' => '',
+                                    'id' => $item->id,
+                                    'route' => route('panel.users.destroy', $item->id),
                                     'message' => 'l\'utilistateur',
                                 ])
                             </tbody>

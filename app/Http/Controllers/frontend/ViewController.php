@@ -8,6 +8,7 @@ use App\Models\AppBasics;
 use App\Models\Banner;
 use App\Models\BannerCarrousel;
 use App\Models\Category;
+use App\Models\Contact;
 use App\Models\Machine;
 use App\Models\Partner;
 use App\Models\Post;
@@ -107,12 +108,19 @@ class ViewController extends Controller
             ['label' => 'Contacts', 'url' => null]
         ];
 
-        return view('apps.pages.frontend.contact', compact('breadcrumbs'));
+        $appBasics = AppBasics::first();
+
+        return view('apps.pages.frontend.contact', compact('breadcrumbs', 'appBasics'));
     }
 
     public function dashboard()
     {
-        return view('apps.pages.backend.dashboard');
+        $machines = Machine::all();
+        $posts = Post::all();
+        $messages = Contact::all();
+        $partners = Partner::all();
+
+        return view('apps.pages.backend.dashboard', compact('machines', 'posts', 'messages', 'partners'));
     }
 
     public function detail(string $id)
@@ -176,5 +184,10 @@ class ViewController extends Controller
         $appBasics = AppBasics::first();
 
         return view('apps.pages.frontend.privacy', compact('appBasics'));
+    }
+
+    public function login()
+    {
+        return view('apps.auths.login');
     }
 }

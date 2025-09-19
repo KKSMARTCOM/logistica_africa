@@ -1,31 +1,26 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
-@section('title', 'Gestion des Partenaires')
+@section('title', 'Gestion des Services')
 
-@section('header', 'Gestion des Partenaires')
+@section('header', 'Gestion des Services')
 
 @section('content')
     <!-- PAGE-HEADER -->
     <div class="page-header">
-        <h1 class="page-title">Liste des Partenaires</h1>
+        <h1 class="page-title">Liste des Services</h1>
         <div>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Accueil</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Liste des Partenaires</li>
+                <li class="breadcrumb-item active" aria-current="page">Liste des Services</li>
             </ol>
         </div>
     </div>
     <!-- PAGE-HEADER END -->
 
     <div class="page_header_bottom">
-        <div class="page_header_bottom_left">
-            <div class="page_header_bottom_left_input">
-                <input type="text" class="form-control" id="typehead" placeholder="Rechercher..." autocomplete="off">
-                <button class="btn px-0 pt-2"><i class="fe fe-search" aria-hidden="true"></i></button>
-            </div>
-        </div>
+
         <div class="page_header_bottom_right">
-            <a href="javascript:void(0);" data-bs-toggle="sidebar-right" data-target=".add-partners-form"
+            <a href="javascript:void(0);" data-bs-toggle="sidebar-right" data-target=".add-service-form"
                 class="btn btn-primary">Ajouter</a>
         </div>
     </div>
@@ -36,14 +31,15 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    @if ($partners && $partners->count() > 0)
+                    @if ($services && $services->count() > 0)
                         <div class="table-responsive">
                             <table class="table border text-nowrap text-md-nowrap table-hover mb-0">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Logo</th>
-                                        <th>Nom</th>
+                                        <th>Image</th>
+                                        <th>Titre</th>
+                                        <th>Statut</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -51,21 +47,26 @@
                                     @php
                                         $id = 1;
                                     @endphp
-                                    @foreach ($partners as $item)
+                                    @foreach ($services as $item)
                                         <tr>
                                             <td>{{ $id++ }}</td>
                                             <td>
                                                 <div class="partner-image-circle">
-                                                    <img src="{{ asset('storage/' . $item->logo) }}"
-                                                        alt="{{ $item->name }}" title="{{ $item->name }}">
+                                                    <img src="{{ asset('storage/' . $item->image ?? 'assets/images/brand/photo.png') }}"
+                                                        alt="{{ $item->title }}" title="{{ $item->title }}">
 
                                                 </div>
                                             </td>
-                                            <td>{{ $item->name }}</td>
+                                            <td>{{ $item->title }}</td>
+                                            <td>
+                                                <span class="badge {{ $item->status ? 'bg-success' : 'bg-danger' }}">
+                                                    {{ $item->status ? 'Actif' : 'Inactif' }}
+                                                </span>
+                                            </td>
                                             <td>
                                                 <div class="table-btn">
                                                     <a href="javascript:void(0);" data-bs-toggle="sidebar-right"
-                                                        data-target="#editpartner{{ $item->id }}"
+                                                        data-target="#edit-service-{{ $item->id }}"
                                                         class="text-secondary">Modifier</a>
 
                                                     <a href="javascript:void(0);" data-bs-toggle="modal"
@@ -78,11 +79,11 @@
 
                                         @include('apps.modals.delete', [
                                             'id' => $item->id,
-                                            'route' => route('Panel::partners.destroy', $item->id),
-                                            'message' => 'le partenaire',
+                                            'route' => route('panel.services.destroy', $item->id),
+                                            'message' => 'le service',
                                         ])
 
-                                        @include('apps.modals.partners.edit')
+                                        @include('apps.modals.services.edit')
                                     @endforeach
                                 </tbody>
                             </table>
@@ -94,5 +95,5 @@
     </div>
     <!-- End Row -->
 
-    @include('apps.modals.partners.add')
+    @include('apps.modals.services.add')
 @endsection

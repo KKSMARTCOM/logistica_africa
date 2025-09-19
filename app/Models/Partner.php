@@ -11,7 +11,7 @@ class Partner extends Model
 {
     use HasFactory, GeneratesUuid, Notifiable;
 
-    protected $fillable = ['name', 'image', 'website_url'];
+    protected $fillable = ['name', 'image', 'website_url', 'status'];
 
     protected $table = 'partners';
 

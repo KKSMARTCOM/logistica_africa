@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Gestion des Utilisateurs')
+@section('title', 'Gestion des Machines')
 
-@section('header', 'Gestion des Utilisateurs')
+@section('header', 'Gestion des Machines')
 
 @section('content')
     <!-- PAGE-HEADER -->
@@ -25,8 +25,9 @@
             </div>
         </div> --}}
         <div class="page_header_bottom_right">
-            <a href="javascript:void(0);" data-bs-toggle="sidebar-right" data-target=".add-users-form"
+            <a href="javascript:void(0);" data-bs-toggle="sidebar-right" data-target=".add-machine-form"
                 class="btn btn-primary">Ajouter</a>
+
         </div>
     </div>
 
@@ -58,7 +59,8 @@
                                             <td>{{ $item->name ?? 'N/A' }}</td>
                                             <td>
                                                 <div class="image-circle">
-                                                    <img style="height: 100%;width:100%" src="{{ asset($item->image) }}"
+                                                    <img style="height: 100%;width:100%"
+                                                        src="{{ asset('storage/' . $item->image ?? 'assets/images/brand/photo.png') }}"
                                                         alt="{{ $item->name }}" title="{{ $item->name }}">
                                                 </div>
                                             </td>
@@ -67,8 +69,8 @@
                                             <td>
                                                 <div class="table-btn">
                                                     <a href="javascript:void(0);" data-bs-toggle="sidebar-right"
-                                                        data-target="#update-users-form{{ $item->id }}"
-                                                        class="text-secondary">Modifier</a>
+                                                        data-target="#update-machine-form{{ $item->id }}"
+                                                        class="text-primary">Modifier</a>
 
                                                     <a href="javascript:void(0);" data-bs-toggle="modal"
                                                         data-bs-target="#deleteModal{{ $item->id }}"
@@ -87,6 +89,10 @@
                                 </tbody>
                             </table>
                         </div>
+
+                        <div class="mt-3 w-full">
+                            {{ $machines->links('pagination::custom') }}
+                        </div>
                     @endif
                 </div>
             </div>
@@ -94,5 +100,5 @@
     </div>
     <!-- End Row -->
 
-    @include('apps.modals.users.add')
+    @include('apps.modals.machines.add')
 @endsection

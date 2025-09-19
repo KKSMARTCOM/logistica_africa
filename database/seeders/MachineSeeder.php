@@ -47,73 +47,151 @@ class MachineSeeder extends Seeder
                     'name' => 'Compacteur',
                     'description' => 'Chariot élévateur électrique compact et puissant.',
                     'image' => 'assets/images/machine/compacteur.png',
-                    'additionnel_images' => ['toyota1.jpg', 'toyota2.jpg'],
+                    'additionnal_images' => ['toyota1.jpg', 'toyota2.jpg'],
                     'price' => 200000,
-                    'model' => 'CA610D, 129Kw',
-                    'capacity' => '3000 m²/jour',
-                    'productor_name' => 'Dynapac',
-                    'production_year' => '2013',
-                    'technical_sheet' => null,
+                    'characteristics' => [
+                        [
+                            'label' => 'Modèle & Puissance',
+                            'value' => 'CA610D, 129Kw',
+                        ],
+                        [
+                            'label' => 'Capacité',
+                            'value' => '3000 m²/jour',
+                        ],
+                        [
+                            'label' => 'Producteur',
+                            'value' => 'Dynapac',
+                        ],
+                        [
+                            'label' => 'Année de production',
+                            'value' => '2013',
+                        ],
+                    ]
                 ],
                 [
                     'name' => 'Auto-bétonnière',
                     'description' => 'Système motorisé pour transport de colis en ligne droite.',
                     'image' => 'assets/images/machine/auto-betonniere.png',
-                    'additionnel_images' => [],
+                    'additionnal_images' => [],
                     'price' => 300000,
-                    'model' => '3500EE',
-                    'capacity' => '50 m³/jour (8 heures)',
-                    'productor_name' => 'DBM',
-                    'production_year' => '2023',
-                    'technical_sheet' => 'roller-conveyor.pdf',
+                    'characteristics' => [
+                        [
+                            'label' => 'Modèle & Puissance',
+                            'value' => '3500EE',
+                        ],
+                        [
+                            'label' => 'Capacité',
+                            'value' => '50 m³/jour (8 heures)',
+                        ],
+                        [
+                            'label' => 'Producteur',
+                            'value' => 'DBM',
+                        ],
+                        [
+                            'label' => 'Année de production',
+                            'value' => '2023',
+                        ],
+                    ]
                 ],
                 [
                     'name' => 'Pelle Mécanique',
                     'description' => 'Système motorisé pour transport de colis en ligne droite.',
                     'image' => 'assets/images/machine/pelle.png',
-                    'additionnel_images' => [],
+                    'additionnal_images' => [],
                     'price' => 350000,
-                    'model' => 'E300DL, 169 Kw',
-                    'capacity' => '810m³/jour',
-                    'productor_name' => 'VOLVO',
-                    'production_year' => '2022',
-                    'technical_sheet' => null,
+                    'characteristics' => [
+                        [
+                            'label' => 'Modèle & Puissance',
+                            'value' => 'E300DL, 169 Kw',
+                        ],
+                        [
+                            'label' => 'Capacité',
+                            'value' => '810m³/jour',
+                        ],
+                        [
+                            'label' => 'Producteur',
+                            'value' => 'VOLVO',
+                        ],
+                        [
+                            'label' => 'Année de production',
+                            'value' => '2022',
+                        ]
+                    ]
                 ],
                 [
                     'name' => 'Chargeuse',
                     'description' => 'Système motorisé pour transport de colis en ligne droite.',
                     'image' => 'assets/images/machine/chargeuse.png',
-                    'additionnel_images' => [],
+                    'additionnal_images' => [],
                     'price' => 250000,
-                    'model' => 'L956F, 165Kw',
-                    'capacity' => '1500m³/jour',
-                    'productor_name' => 'SDLG',
-                    'production_year' => '2022',
-                    'technical_sheet' => null,
+                    'characteristics' => [
+                        [
+                            'label' => 'Modèle & Puissance',
+                            'value' => 'L956F, 165Kw',
+                        ],
+                        [
+                            'label' => 'Capacité',
+                            'value' => '1500m³/jour',
+                        ],
+                        [
+                            'label' => 'Producteur',
+                            'value' => 'SDLG',
+                        ],
+                        [
+                            'label' => 'Année de production',
+                            'value' => '2022',
+                        ],
+                    ]
                 ],
                 [
                     'name' => 'Niveleuse',
                     'description' => 'Système motorisé pour transport de colis en ligne droite.',
                     'image' => 'assets/images/machine/niveuse.png',
-                    'additionnel_images' => [],
+                    'additionnal_images' => [],
                     'price' => 350000,
-                    'model' => 'CAT 140H, 154Kw',
-                    'capacity' => '780m³/jour',
-                    'productor_name' => 'CATERPILLAR',
-                    'production_year' => '2007',
-                    'technical_sheet' => null,
+                    'characteristics' => [
+                        [
+                            'label' => 'Modèle & Puissance',
+                            'value' => 'CAT 140H, 154Kw',
+                        ],
+                        [
+                            'label' => 'Capacité',
+                            'value' => '780m³/jour',
+                        ],
+                        [
+                            'label' => 'Producteur',
+                            'value' => 'CATERPILLAR',
+                        ],
+                        [
+                            'label' => 'Année de production',
+                            'value' => '2007',
+                        ],
+                    ]
                 ],
                 [
                     'name' => 'Compacteur',
                     'description' => 'Système motorisé pour transport de colis en ligne droite.',
                     'image' => 'assets/images/machine/compacteur2.png',
-                    'additionnel_images' => [],
+                    'additionnal_images' => [],
                     'price' => 30000,
-                    'model' => 'Kohler KD15-440',
-                    'capacity' => '0,50/0,25mm-25/13 kN-63/63hz',
-                    'productor_name' => 'DYNAPAC',
-                    'production_year' => '2024',
-                    'technical_sheet' => null,
+                    'characteristics' => [
+                        [
+                            'label' => 'Modèle & Puissance',
+                            'value' => 'Kohler KD15-440',
+                        ],
+                        [
+                            'label' => 'Capacité',
+                            'value' => '0,50/0,25mm-25/13 kN-63/63hz',
+                        ],
+                        [
+                            'label' => 'Producteur',
+                            'value' => 'DYNAPAC',
+                        ],
+                        [
+                            'label' => 'Année de production',
+                            'value' => '2024',
+                        ],
+                    ]
                 ],
             ],
             'Levage' => [
@@ -121,25 +199,51 @@ class MachineSeeder extends Seeder
                     'name' => 'Tractopelle',
                     'description' => 'Transpalette robuste pour entrepôt intensif.',
                     'image' => 'assets/images/machine/tractopelle.png',
-                    'additionnel_images' => [],
+                    'additionnal_images' => [],
                     'price' => 180000,
-                    'model' => '3DXPLUS, 55Kw',
-                    'capacity' => 'Godet 1m³',
-                    'productor_name' => 'JCB',
-                    'production_year' => '2023',
-                    'technical_sheet' => null,
+                    'characteristics' => [
+                        [
+                            'label' => 'Modèle & Puissance',
+                            'value' => '3DXPLUS, 55Kw',
+                        ],
+                        [
+                            'label' => 'Capacité',
+                            'value' => 'Godet 1m³',
+                        ],
+                        [
+                            'label' => 'Producteur',
+                            'value' => 'JCB',
+                        ],
+                        [
+                            'label' => 'Année de production',
+                            'value' => '2023',
+                        ],
+                    ]
                 ],
                 [
                     'name' => 'Tractopelle',
                     'description' => 'Transpalette compact avec grande manœuvrabilité.',
                     'image' => 'assets/images/machine/tractopel.png',
-                    'additionnel_images' => [],
+                    'additionnal_images' => [],
                     'price' => 180000,
-                    'model' => 'B877F, 70Kw',
-                    'capacity' => 'Godet 1m³',
-                    'productor_name' => 'SDLG',
-                    'production_year' => '2022',
-                    'technical_sheet' => 'eje116.pdf',
+                    'characteristics' => [
+                        [
+                            'label' => 'Modèle & Puissance',
+                            'value' => 'B877F, 70Kw',
+                        ],
+                        [
+                            'label' => 'Capacité',
+                            'value' => 'Godet 1m³',
+                        ],
+                        [
+                            'label' => 'Producteur',
+                            'value' => 'SDLG',
+                        ],
+                        [
+                            'label' => 'Année de production',
+                            'value' => '2022',
+                        ],
+                    ]
                 ],
             ],
             'Transport' => [
@@ -147,49 +251,102 @@ class MachineSeeder extends Seeder
                     'name' => 'Camion Benne 12 roues',
                     'description' => 'Gerbeur électrique avec levée initiale.',
                     'image' => 'assets/images/machine/12roues.png',
-                    'additionnel_images' => [],
+                    'additionnal_images' => [],
                     'price' => 140000,
-                    'model' => 'F2000',
-                    'capacity' => '25m³',
-                    'productor_name' => 'SHACMAN',
-                    'production_year' => '2023',
-                    'technical_sheet' => null,
+                    'characteristics' => [
+                        [
+                            'label' => 'Modèle & Puissance',
+                            'value' => 'F2000',
+                        ],
+                        [
+                            'label' => 'Capacité',
+                            'value' => '25m³',
+                        ],
+                        [
+                            'label' => 'Producteur',
+                            'value' => 'SHACMAN',
+                        ],
+                        [
+                            'label' => 'Année de production',
+                            'value' => '2023',
+                        ],
+
+                    ]
                 ],
                 [
                     'name' => 'Camion Benne 10 roues',
                     'description' => 'Gerbeur électrique avec levée initiale.',
                     'image' => 'assets/images/machine/10roues.png',
-                    'additionnel_images' => [],
+                    'additionnal_images' => [],
                     'price' => 120000,
-                    'model' => 'F2000',
-                    'capacity' => '20m³',
-                    'productor_name' => 'SHACMAN',
-                    'production_year' => '2023',
-                    'technical_sheet' => null,
+                    'characteristics' => [
+                        [
+                            'label' => 'Modèle & Puissance',
+                            'value' => 'F2000',
+                        ],
+                        [
+                            'label' => 'Capacité',
+                            'value' => '20m³',
+                        ],
+                        [
+                            'label' => 'Producteur',
+                            'value' => 'SHACMAN',
+                        ],
+                        [
+                            'label' => 'Année de production',
+                            'value' => '2023',
+                        ],
+                    ]
                 ],
                 [
                     'name' => 'Camion grue',
                     'description' => 'Gerbeur électrique avec levée initiale.',
                     'image' => 'assets/images/machine/grue.png',
-                    'additionnel_images' => [],
+                    'additionnal_images' => [],
                     'price' => 80000,
-                    'model' => 'PK140.1',
-                    'capacity' => '6T',
-                    'productor_name' => 'RENAULT-ATLAS',
-                    'production_year' => '1996',
-                    'technical_sheet' => null,
+                    'characteristics' => [
+                        [
+                            'label' => 'Modèle & Puissance',
+                            'value' => 'PK140.1',
+                        ],
+                        [
+                            'label' => 'Capacité',
+                            'value' => '6T',
+                        ],
+                        [
+                            'label' => 'Producteur',
+                            'value' => 'RENAULT-ATLAS',
+                        ],
+                        [
+                            'label' => 'Année de production',
+                            'value' => '1996',
+                        ],
+                    ]
                 ],
                 [
                     'name' => 'Camion grue',
                     'description' => 'Gerbeur électrique avec levée initiale.',
                     'image' => 'assets/images/machine/grue2.png',
-                    'additionnel_images' => [],
+                    'additionnal_images' => [],
                     'price' => 80000,
-                    'model' => 'PK14080',
-                    'capacity' => '5T',
-                    'productor_name' => 'RENAULT-PALFINGER',
-                    'production_year' => '1996',
-                    'technical_sheet' => null,
+                    'characteristics' => [
+                        [
+                            'label' => 'Modèle & Puissance',
+                            'value' => 'PK14080',
+                        ],
+                        [
+                            'label' => 'Capacité',
+                            'value' => '5T',
+                        ],
+                        [
+                            'label' => 'Producteur',
+                            'value' => 'RENAULT-PALFINGER',
+                        ],
+                        [
+                            'label' => 'Année de production',
+                            'value' => '1996',
+                        ],
+                    ]
                 ],
             ],
             'Équipements complémentaires' => [
@@ -197,49 +354,101 @@ class MachineSeeder extends Seeder
                     'name' => 'Auto-bétonnière',
                     'description' => 'Système motorisé pour transport de colis en ligne droite.',
                     'image' => 'assets/images/machine/auto-betonniere.png',
-                    'additionnel_images' => [],
+                    'additionnal_images' => [],
                     'price' => 300000,
-                    'model' => '3500EE',
-                    'capacity' => '50 m³/jour (8 heures)',
-                    'productor_name' => 'DBM',
-                    'production_year' => '2023',
-                    'technical_sheet' => 'roller-conveyor.pdf',
+                    'characteristics' => [
+                        [
+                            'label' => 'Modèle & Puissance',
+                            'value' => '3500EE',
+                        ],
+                        [
+                            'label' => 'Capacité',
+                            'value' => '50 m³/jour (8 heures)',
+                        ],
+                        [
+                            'label' => 'Producteur',
+                            'value' => 'DBM',
+                        ],
+                        [
+                            'label' => 'Année de production',
+                            'value' => '2023',
+                        ],
+                    ]
                 ],
                 [
                     'name' => 'Tour d’éclairage',
                     'description' => 'Convoyeur à bande pour lignes de production.',
                     'image' => 'assets/images/machine/tour.png',
-                    'additionnel_images' => [],
+                    'additionnal_images' => [],
                     'price' => 30000,
-                    'model' => 'HILIGHT V4',
-                    'capacity' => '50HZ, 6KVA',
-                    'productor_name' => 'ATLAS COPCO',
-                    'production_year' => '2020',
-                    'technical_sheet' => null,
+                    'characteristics' => [
+                        [
+                            'label' => 'Modèle & Puissance',
+                            'value' => 'HILIGHT V4',
+                        ],
+                        [
+                            'label' => 'Capacité',
+                            'value' => '50HZ, 6KVA',
+                        ],
+                        [
+                            'label' => 'Producteur',
+                            'value' => 'ATLAS COPCO',
+                        ],
+                        [
+                            'label' => 'Année de production',
+                            'value' => '2020',
+                        ],
+                    ]
                 ],
                 [
                     'name' => 'Groupe électrogène',
                     'description' => 'Convoyeur à bande pour lignes de production.',
                     'image' => 'assets/images/machine/groupe.png',
-                    'additionnel_images' => [],
+                    'additionnal_images' => [],
                     'price' => 100000,
-                    'model' => 'DB80GF 80Kw',
-                    'capacity' => '100KVA',
-                    'productor_name' => 'VOLVO',
-                    'production_year' => '2022',
-                    'technical_sheet' => null,
+                    'characteristics' => [
+                        [
+                            'label' => 'Modèle & Puissance',
+                            'value' => 'DB80GF 80Kw',
+                        ],
+                        [
+                            'label' => 'Capacité',
+                            'value' => '100KVA',
+                        ],
+                        [
+                            'label' => 'Producteur',
+                            'value' => 'VOLVO',
+                        ],
+                        [
+                            'label' => 'Année de production',
+                            'value' => '2022',
+                        ],
+                    ]
                 ],
                 [
                     'name' => 'Groupe électrogène',
                     'description' => 'Convoyeur à bande pour lignes de production.',
                     'image' => 'assets/images/machine/groupe2.png',
-                    'additionnel_images' => [],
+                    'additionnal_images' => [],
                     'price' => 80000,
-                    'model' => '3305GM',
-                    'capacity' => '20KVA',
-                    'productor_name' => 'POWEROL',
-                    'production_year' => '2023',
-                    'technical_sheet' => null,
+                    'characteristics' => [
+                        [
+                            'label' => 'Modèle & Puissance',
+                            'value' => '3305GM',
+                        ],
+                        [
+                            'label' => 'Capacité',
+                            'value' => '20KVA',
+                        ],
+                        [
+                            'label' => 'Producteur',
+                            'value' => 'POWEROL',
+                        ],
+                        [
+                            'label' => 'Année de production',
+                            'value' => '2023',
+                        ],
+                    ]
                 ],
             ],
         ];
@@ -254,13 +463,9 @@ class MachineSeeder extends Seeder
                     'name' => $item['name'],
                     'description' => $item['description'],
                     'image' => $item['image'],
-                    'additionnel_images' => json_encode($item['additionnel_images']),
+                    'additionnal_images' => json_encode($item['additionnal_images']),
                     'price' => $item['price'],
-                    'model' => $item['model'],
-                    'capacity' => $item['capacity'],
-                    'productor_name' => $item['productor_name'],
-                    'production_year' => $item['production_year'],
-                    'technical_sheet' => $item['technical_sheet'],
+                    'characteristics' => json_encode($item['characteristics']),
                 ]);
             }
         }

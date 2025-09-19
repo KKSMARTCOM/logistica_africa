@@ -24,8 +24,8 @@
                             <div class="dropdown d-flex profile-1">
                                 <a href="javascript:void(0)" data-bs-toggle="dropdown"
                                     class="nav-link leading-none d-flex">
-                                    <img src="{{ asset(Auth()->user()->avatar ?? 'assets/images/users/21.jpg') }}"
-                                        alt="profile-user" class="avatar profile-user brround cover-image">
+                                    <img src="{{ asset('assets/images/brand/photo.png') }}" alt="profile-user"
+                                        class="avatar profile-user brround cover-image">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                     <div class="drop-heading">
@@ -39,15 +39,14 @@
                                         </div>
                                     </div>
                                     <div class="dropdown-divider m-0"></div>
-                                    <a class="dropdown-item" href="profile.html">
+                                    <a class="dropdown-item" href="{{ route('panel.settings.profile.view') }}">
                                         <i class="dropdown-icon fe fe-user"></i> Profil
                                     </a>
 
-                                    <form id="logoutForm" method="POST">
+                                    <form id="logoutForm" action="{{ route('panel.users.logout') }}" method="POST">
                                         @csrf
-                                        @method('GET')
-                                        <button type="button" class="dropdown-item" onclick="logoutAlert()">
-                                            <i class="dropdown-icon fe fe-alert-circle"></i> Déconnexion
+                                        <button type="button" class="dropdown-item text-red" onclick="logoutAlert()">
+                                            <i class="dropdown-icon fe fe-alert-circle text-red"></i> Déconnexion
                                         </button>
                                     </form>
                                 </div>

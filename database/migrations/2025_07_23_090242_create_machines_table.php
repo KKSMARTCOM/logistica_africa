@@ -17,13 +17,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('image');
-            $table->json('additionnel_images')->nullable();
+            $table->json('additionnal_images')->nullable();
             $table->integer('price');
-            $table->string('model')->nullable();
-            $table->string('capacity')->nullable();
-            $table->string('productor_name')->nullable();
-            $table->string('production_year')->nullable();
-            $table->string('technical_sheet')->nullable();
+            $table->json('characteristics')->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

@@ -65,7 +65,13 @@ class PartnerController extends Controller
             $data = $request->only(['name', 'website_url', 'status']);
 
             if ($request->hasFile('image')) {
-                $data['image'] = $request->file('image')->store('partners', 'public');
+                $img = $request->file('image');
+                $folderName = $request->name;
+                $uploadFolder = 'assets/images/partners/';
+                folderOpen($uploadFolder);
+                $imgurl = uploadImage($img, $folderName, $uploadFolder);
+
+                $data['image'] = $imgurl;
             }
 
             Partner::create($data);
@@ -131,11 +137,17 @@ class PartnerController extends Controller
             $data = $request->only(['name', 'website_url', 'status']);
 
             if ($request->hasFile('image')) {
-                if ($partner->image && Storage::disk('public')->exists($partner->image)) {
-                    Storage::disk('public')->delete($partner->image);
+                if ($partner->image) {
+                    deleteFile($partner->image);
                 }
 
-                $data['image'] = $request->file('image')->store('partners', 'public');
+                $img = $request->file('image');
+                $folderName = $request->name;
+                $uploadFolder = 'assets/images/partners/';
+                folderOpen($uploadFolder);
+                $imgurl = uploadImage($img, $folderName, $uploadFolder);
+
+                $data['image'] = $imgurl;
             }
 
             $partner->update($data);
@@ -157,8 +169,8 @@ class PartnerController extends Controller
             $partner = Partner::findOrFail($id);
 
             // Supprimer l'image si elle existe
-            if ($partner->image && Storage::disk('public')->exists($partner->image)) {
-                Storage::disk('public')->delete($partner->image);
+            if ($partner->image) {
+                deleteFile($partner->image);
             }
 
             // Suppression du post

@@ -81,14 +81,26 @@ class MachineController extends Controller
             ];
 
             if ($request->hasFile('image')) {
-                $imagePath = $request->file('image')->store('machines', 'public');
-                $data['image'] = $imagePath;
+                $img = $request->file('image');
+                $folderName = $request->name;
+                $uploadFolder = 'assets/images/machines/';
+                folderOpen($uploadFolder);
+                $imgurl = uploadImage($img, $folderName, $uploadFolder);
+
+                $data['image'] = $imgurl;
             }
 
             $additionnalImages = [];
+
             if ($request->hasFile('additionnal_images')) {
                 foreach ($request->file('additionnal_images') as $file) {
-                    $additionnalImages[] = $file->store('machines/additionnals', 'public');
+                    $img = $request->file('additionnal_images');
+                    $folderName = $request->name;
+                    $uploadFolder = 'assets/images/machines/';
+                    folderOpen($uploadFolder);
+                    $imgurl = uploadImage($img, $folderName, $uploadFolder);
+
+                    $additionnalImages[] = $imgurl;
                 }
             }
             $data['additionnal_images'] = !empty($additionnalImages) ? json_encode($additionnalImages) : null;
@@ -166,11 +178,17 @@ class MachineController extends Controller
             // Image principale
             if ($request->hasFile('image')) {
                 // supprimer l’ancienne si elle existe
-                if ($machine->image && Storage::disk('public')->exists($machine->image)) {
-                    Storage::disk('public')->delete($machine->image);
+                if ($machine->image) {
+                    deleteFile($machine->image);
+
+                    $img = $request->file('image');
+                    $folderName = $request->name;
+                    $uploadFolder = 'assets/images/machines/';
+                    folderOpen($uploadFolder);
+                    $imgurl = uploadImage($img, $folderName, $uploadFolder);
                 }
 
-                $data['image'] = $request->file('image')->store('machines', 'public');
+                $data['image'] = $imgurl;
             } else {
                 $data['image'] = $machine->image; // garder l’ancienne si rien n’est envoyé
             }
@@ -181,7 +199,7 @@ class MachineController extends Controller
             if ($request->filled('delete_additionnel_images')) {
                 foreach ($request->input('delete_additionnel_images') as $imgToDelete) {
                     if (in_array($imgToDelete, $additionnalImages)) {
-                        Storage::disk('public')->delete($imgToDelete);
+                        deleteFile($imgToDelete);
                         $additionnalImages = array_diff($additionnalImages, [$imgToDelete]);
                     }
                 }
@@ -190,7 +208,13 @@ class MachineController extends Controller
             // Ajouter de nouvelles images si uploadées
             if ($request->hasFile('additionnal_images')) {
                 foreach ($request->file('additionnal_images') as $file) {
-                    $additionnalImages[] = $file->store('machines/additionnals', 'public');
+                    $img = $file;
+                    $folderName = $request->name;
+                    $uploadFolder = 'assets/images/machines/';
+                    folderOpen($uploadFolder);
+                    $imgurl = uploadImage($img, $folderName, $uploadFolder);
+
+                    $additionnalImages[] = $imgurl;
                 }
             }
 
@@ -220,16 +244,14 @@ class MachineController extends Controller
             $machine = Machine::findOrFail($id);
 
             // Supprimer l'image principale
-            if ($machine->image && Storage::disk('public')->exists($machine->image)) {
-                Storage::disk('public')->delete($machine->image);
+            if ($machine->image) {
+                deleteFile($machine->image);
             }
 
             // Supprimer les images additionnelles
             if (!empty($machine->additionnal_images)) {
                 foreach (json_decode($machine->additionnal_images) as $img) {
-                    if (Storage::disk('public')->exists($img)) {
-                        Storage::disk('public')->delete($img);
-                    }
+                    deleteFile($img);
                 }
             }
 

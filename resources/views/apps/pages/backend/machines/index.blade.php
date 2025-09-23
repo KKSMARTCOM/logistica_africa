@@ -60,7 +60,7 @@
                                             <td>
                                                 <div class="image-circle">
                                                     <img style="height: 100%;width:100%"
-                                                        src="{{ asset('storage/' . $item->image ?? 'assets/images/brand/photo.png') }}"
+                                                        src="{{ asset($item->image ?? 'assets/images/brand/photo.png') }}"
                                                         alt="{{ $item->name }}" title="{{ $item->name }}">
                                                 </div>
                                             </td>

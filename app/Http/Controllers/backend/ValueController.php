@@ -64,7 +64,13 @@ class ValueController extends Controller
             $data = $request->only(['title', 'description', 'status']);
 
             if ($request->hasFile('image')) {
-                $data['image'] = $request->file('image')->store('values', 'public');
+                $img = $request->file('image');
+                $folderName = $request->title;
+                $uploadFolder = 'assets/images/values/';
+                folderOpen($uploadFolder);
+                $imgurl = uploadImage($img, $folderName, $uploadFolder);
+
+                $data['image'] = $imgurl;
             }
 
             Value::create($data);
@@ -130,11 +136,17 @@ class ValueController extends Controller
             $data = $request->only(['title', 'description', 'status']);
 
             if ($request->hasFile('image')) {
-                if ($value->image && Storage::disk('public')->exists($value->image)) {
-                    Storage::disk('public')->delete($value->image);
+                if ($value->image) {
+                    deleteFile($value->image);
                 }
 
-                $data['image'] = $request->file('image')->store('values', 'public');
+                $img = $request->file('image');
+                $folderName = $request->title;
+                $uploadFolder = 'assets/images/values/';
+                folderOpen($uploadFolder);
+                $imgurl = uploadImage($img, $folderName, $uploadFolder);
+
+                $data['image'] = $imgurl;
             }
 
             $value->update($data);
@@ -156,8 +168,8 @@ class ValueController extends Controller
             $value = Value::findOrFail($id);
 
             // Supprimer l'image si elle existe
-            if ($value->image && Storage::disk('public')->exists($value->image)) {
-                Storage::disk('public')->delete($value->image);
+            if ($value->image) {
+                deleteFile($value->image);
             }
 
             // Suppression du post

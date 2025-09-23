@@ -1,5 +1,5 @@
 <section>
-    <div style="background:url('{{ asset('storage/' . $banner->background_image ?? 'assets/images/brand/machine3.jpg') }}') center; background-repeat: no-repeat; background-size: cover;"
+    <div style="background:url('{{ asset($banner->background_image ?? 'assets/images/brand/machine3.jpg') }}') center; background-repeat: no-repeat; background-size: cover;"
         class="h-[550px] max-h-auto relative hidden md:block">
         <div class="h-full w-full bg-black opacity-80"></div>
 
@@ -13,8 +13,8 @@
 
         <div id="banner-carousel-web"
             class="hidden md:block absolute w-[250px] md:w-[450px] lg:w-1/2 h-[300px] sm:h-[450px] rounded-tl-[20%] overflow-hidden bottom-0 right-0">
-            @foreach ($bannerCarrousel as $image)
-                <img src="{{ asset('storage/' . $image ?? 'assets/images/brand/photo.png') }}"
+            @foreach ($bannerCarrousel as $item)
+                <img src="{{ asset($item->image ?? 'assets/images/brand/photo.png') }}"
                     class="w-full h-full object-cover" alt="Carrousel">
             @endforeach
         </div>
@@ -23,7 +23,7 @@
         @foreach ($bannerCarrousel as $item)
             <div>
                 <div class="w-full h-[250px]">
-                    <img src="{{ asset('storage/' . $item->image ?? 'assets/images/brand/photo.png') }}"
+                    <img src="{{ asset($item->image ?? 'assets/images/brand/photo.png') }}"
                         class="w-full h-full object-cover" alt="Carrousel">
                 </div>
                 <div class="p-5 bg-[#263135] h-[200px] flex flex-col justify-center">

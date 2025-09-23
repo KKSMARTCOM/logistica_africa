@@ -9,13 +9,13 @@
         <div class="block md:flex gap-6">
             <div class="w-full md:flex-1 mb-6 md:mt-0 block md:hidden">
                 <div class="h-[400px] rounded-lg overflow-hidden mb-4">
-                    <img src="{{ asset('storage/' . $machine->image ?? 'assets/images/brand/photo.png') }}"
-                        alt="{{ $machine->name }}" class="w-full h-ful object-cover">
+                    <img src="{{ asset($machine->image ?? 'assets/images/brand/photo.png') }}" alt="{{ $machine->name }}"
+                        class="w-full h-ful object-cover">
                 </div>
 
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
                     <div class="border p-1">
-                        <img src="{{ asset('storage/' . $machine->image ?? 'assets/images/brand/photo.png') }}"
+                        <img src="{{ asset($machine->image ?? 'assets/images/brand/photo.png') }}"
                             alt="{{ $machine->name }}" class="w-full h-ful object-cover">
                     </div>
                 </div>
@@ -52,13 +52,13 @@
             </div>
             <div class="w-full md:flex-1 hidden md:block">
                 <div class="h-[400px] rounded-lg overflow-hidden mb-4">
-                    <img src="{{ asset('storage/' . $machine->image ?? 'assets/images/brand/photo.png') }}"
-                        alt="{{ $machine->name }}" class="w-full h-ful object-cover">
+                    <img src="{{ asset($machine->image ?? 'assets/images/brand/photo.png') }}" alt="{{ $machine->name }}"
+                        class="w-full h-ful object-cover">
                 </div>
 
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
                     <div class="border p-1">
-                        <img src="{{ asset('storage/' . $machine->image ?? 'assets/images/brand/photo.png') }}"
+                        <img src="{{ asset($machine->image ?? 'assets/images/brand/photo.png') }}"
                             alt="{{ $machine->name }}" class="w-full h-ful object-cover">
                     </div>
                 </div>

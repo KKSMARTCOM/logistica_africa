@@ -64,7 +64,13 @@ class ServiceController extends Controller
             $data = $request->only(['title', 'description', 'status']);
 
             if ($request->hasFile('image')) {
-                $data['image'] = $request->file('image')->store('services', 'public');
+                $img = $request->file('image');
+                $folderName = $request->title;
+                $uploadFolder = 'assets/images/services/';
+                folderOpen($uploadFolder);
+                $imgurl = uploadImage($img, $folderName, $uploadFolder);
+
+                $data['image'] = $imgurl;
             }
 
             Service::create($data);
@@ -130,11 +136,17 @@ class ServiceController extends Controller
             $data = $request->only(['title', 'description', 'status']);
 
             if ($request->hasFile('image')) {
-                if ($service->image && Storage::disk('public')->exists($service->image)) {
-                    Storage::disk('public')->delete($service->image);
+                if ($service->image) {
+                    deleteFile($service->image);
                 }
 
-                $data['image'] = $request->file('image')->store('services', 'public');
+                $img = $request->file('image');
+                $folderName = $request->title;
+                $uploadFolder = 'assets/images/services/';
+                folderOpen($uploadFolder);
+                $imgurl = uploadImage($img, $folderName, $uploadFolder);
+
+                $data['image'] = $imgurl;
             }
 
             $service->update($data);
@@ -156,8 +168,8 @@ class ServiceController extends Controller
             $service = Service::findOrFail($id);
 
             // Supprimer l'image si elle existe
-            if ($service->image && Storage::disk('public')->exists($service->image)) {
-                Storage::disk('public')->delete($service->image);
+            if ($service->image) {
+                deleteFile($service->image);
             }
 
             // Suppression du post

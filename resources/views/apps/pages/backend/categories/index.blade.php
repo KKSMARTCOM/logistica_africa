@@ -56,7 +56,7 @@
                                             <td>{{ $id++ }}</td>
                                             <td>
                                                 <div class="partner-image-circle">
-                                                    <img src="{{ asset('storage/' . $item->image ?? 'assets/images/brand/photo.png') }}"
+                                                    <img src="{{ asset($item->image ?? 'assets/images/brand/photo.png') }}"
                                                         alt="{{ $item->name }}" title="{{ $item->name }}">
 
                                                 </div>

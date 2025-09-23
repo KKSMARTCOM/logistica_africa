@@ -22,7 +22,7 @@
             <div
                 class="space-y-4 mx-4 h-[350px] rounded-xl overflow-hidden cursor-pointer hover:shadow-lg transition-shadow duration-300">
                 <div class="h-[250px] overflow-hidden">
-                    <img src="{{ asset('storage/' . $item->image ?? 'assets/images/brand/photo.png') }}"
+                    <img src="{{ asset($item->image ?? 'assets/images/brand/photo.png') }}"
                         class="w-full h-full object-cover" alt="">
                 </div>
                 <div class="text-sm sm:text-[1rem] space-y-2 px-2 py-4 rounded-b-xl">

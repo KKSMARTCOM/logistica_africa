@@ -64,7 +64,13 @@ class TestimonialController extends Controller
             $data = $request->only(['name', 'description', 'status']);
 
             if ($request->hasFile('image')) {
-                $data['image'] = $request->file('image')->store('testimonials', 'public');
+                $img = $request->file('image');
+                $folderName = $request->name;
+                $uploadFolder = 'assets/images/testimonials/';
+                folderOpen($uploadFolder);
+                $imgurl = uploadImage($img, $folderName, $uploadFolder);
+
+                $data['image'] = $imgurl;
             }
 
             Testimonial::create($data);
@@ -130,11 +136,17 @@ class TestimonialController extends Controller
             $data = $request->only(['name', 'description', 'status']);
 
             if ($request->hasFile('image')) {
-                if ($testimonial->image && Storage::disk('public')->exists($testimonial->image)) {
-                    Storage::disk('public')->delete($testimonial->image);
+                if ($testimonial->image) {
+                    deleteFile($testimonial->image);
                 }
 
-                $data['image'] = $request->file('image')->store('testimonials', 'public');
+                $img = $request->file('image');
+                $folderName = 'carrousel';
+                $uploadFolder = 'assets/images/testimonials/';
+                folderOpen($uploadFolder);
+                $imgurl = uploadImage($img, $folderName, $uploadFolder);
+
+                $data['image'] = $imgurl;
             }
 
             $testimonial->update($data);
@@ -156,8 +168,8 @@ class TestimonialController extends Controller
             $testimonial = Testimonial::findOrFail($id);
 
             // Supprimer l'image si elle existe
-            if ($testimonial->image && Storage::disk('public')->exists($testimonial->image)) {
-                Storage::disk('public')->delete($testimonial->image);
+            if ($testimonial->image) {
+                deleteFile($testimonial->image);
             }
 
             // Suppression du post

@@ -9,7 +9,7 @@
         <div class="block md:flex items-center">
             <div class="w-full md:w-1/2 flex justify-center reveal revealleft">
                 <div class="w-full md:w-[80%] h-[300px] overflow-hidden rounded-xl">
-                    <img src="{{ asset('storage/' . $about->mission_image ?? 'assets/images/brand/photo.png') }}"
+                    <img src="{{ asset($about->mission_image ?? 'assets/images/brand/photo.png') }}"
                         class="w-full h-full object-contain" alt="Image">
                 </div>
             </div>
@@ -30,7 +30,7 @@
                         <div
                             class="space-y-4 flex flex-col items-center p-4 rounded-md border border-transparent hover:border-gray-200">
                             <div class="w-[8rem] h-[8rem] overflow-hidden rounded-full bg-white p-2">
-                                <img src="{{ asset('storage/' . $item->image ?? 'assets/images/brand/photo.png') }}"
+                                <img src="{{ asset($item->image ?? 'assets/images/brand/photo.png') }}"
                                     class="w-full h-full object-cover rounded-full " alt="Icon">
                             </div>
                             <div class="text-sm sm:text-[1rem] space-y-2 leading-7">

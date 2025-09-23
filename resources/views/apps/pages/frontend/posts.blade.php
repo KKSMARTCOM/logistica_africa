@@ -11,7 +11,7 @@
                 <div class="space-y-4 rounded-xl hover:shadow-md transition-all ease-in-out duration-300">
                     <a href="{{ route('view.post', $item->id) }}"
                         class="h-[200px] block cursor-pointer w-full overflow-hidden rounded-xl">
-                        <img src="{{ asset('storage/' . $item->cover_image ?? 'assets/images/brand/photo.png') }}"
+                        <img src="{{ asset($item->cover_image ?? 'assets/images/brand/photo.png') }}"
                             class="w-full h-full object-cover" alt="Post Image">
                     </a>
                     <div class="p-4 space-y-2">

@@ -61,7 +61,12 @@ class CategoryController extends Controller
             $data = $request->only(['name', 'description']);
 
             if ($request->hasFile('image')) {
-                $data['image'] = $request->file('image')->store('categories', 'public');
+                $img = $request->file('image');
+                $folderName = $request->name;
+                $uploadFolder = 'assets/images/categories/';
+                folderOpen($uploadFolder);
+                $imgurl = uploadImage($img, $folderName, $uploadFolder);
+                $data['image'] = $imgurl;
             }
 
             Category::create($data);
@@ -124,11 +129,15 @@ class CategoryController extends Controller
             $data = $request->only(['name', 'description']);
 
             if ($request->hasFile('image')) {
-                if ($cat->image && Storage::disk('public')->exists($cat->image)) {
-                    Storage::disk('public')->delete($cat->image);
-                }
+                deleteFile($cat->image);
 
-                $data['image'] = $request->file('image')->store('categories', 'public');
+                $img = $request->file('image');
+                $folderName = $request->name;
+                $uploadFolder = 'assets/images/categories/';
+                folderOpen($uploadFolder);
+                $imgurl = uploadImage($img, $folderName, $uploadFolder);
+
+                $data['image'] = $imgurl;
             }
 
             $cat->update($data);
@@ -150,8 +159,8 @@ class CategoryController extends Controller
             $cat = Category::findOrFail($id);
 
             // Supprimer l'image si elle existe
-            if ($cat->image && Storage::disk('public')->exists($cat->image)) {
-                Storage::disk('public')->delete($cat->image);
+            if ($cat->image) {
+                deleteFile($cat->image);
             }
 
             // Suppression du post

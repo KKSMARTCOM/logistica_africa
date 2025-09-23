@@ -26,8 +26,7 @@
         <div class="col-xl-8">
             <div class="card">
                 <div class="card-image-top">
-                    <img src="{{ asset('storage/' . $post->image ?? 'assets/images/brand/photo.png') }}"
-                        alt="Card image cap">
+                    <img src="{{ asset($post->image ?? 'assets/images/brand/photo.png') }}" alt="Card image cap">
                 </div>
                 <div class="card-body">
                     <div class="d-md-flex">

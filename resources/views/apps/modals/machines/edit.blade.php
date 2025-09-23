@@ -31,8 +31,8 @@
                         <label for="image" class="form-label">Image principale <span
                                 class="text-red">*</span></label>
                         @if ($item->image)
-                            <img src="{{ asset('storage/' . $item->image ?? 'assets/images/brand/photo.png') }}"
-                                alt="Image" class="img-thumbnail mb-2" width="150">
+                            <img src="{{ asset($item->image ?? 'assets/images/brand/photo.png') }}" alt="Image"
+                                class="img-thumbnail mb-2" width="150">
                         @endif
                         <input type="file" name="image" class="form-control" id="image"
                             placeholder="Veuillez choisir une image">
@@ -44,7 +44,7 @@
                             <div class="d-flex flex-wrap gap-3 mb-2">
                                 @foreach (json_decode($item->additionnal_images) as $img)
                                     <div class="position-relative">
-                                        <img src="{{ asset('storage/' . $img ?? 'assets/images/brand/photo.png') }}"
+                                        <img src="{{ asset($img ?? 'assets/images/brand/photo.png') }}"
                                             class="img-thumbnail" width="120">
                                         <label class="d-block">
                                             <input type="checkbox" name="delete_additionnel_images[]"

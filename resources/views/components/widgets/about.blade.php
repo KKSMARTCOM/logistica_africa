@@ -5,7 +5,7 @@
         <div class="block md:flex gap-[2rem] items-center">
             <div class="w-full md:w-1/2 wow fadInUp reveal revealleft">
                 <div class="w-full overflow-hidden rounded-xl">
-                    <img src="{{ asset('storage/' . $about->about_image ?? 'assets/images/brand/photo.png') }}"
+                    <img src="{{ asset($about->about_image ?? 'assets/images/brand/photo.png') }}"
                         class="w-full h-full object-cover" alt="About">
                 </div>
             </div>

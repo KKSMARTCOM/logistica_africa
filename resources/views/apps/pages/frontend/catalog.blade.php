@@ -50,7 +50,7 @@
                         <a href="{{ route('view.detail', $item->id) }}"
                             class="block p-2 relative space-y-4 rounded-xl hover:shadow-lg transition-all ease-in-out duration-300 cursor-pointer">
                             <div class="h-[200px] w-full overflow-hidden rounded-xl">
-                                <img src="{{ asset('storage/' . $item->image ?? 'assets/images/brand/photo.png') }}"
+                                <img src="{{ asset($item->image ?? 'assets/images/brand/photo.png') }}"
                                     class="w-full h-full object-cover" alt="">
                             </div>
                             <div class="bg-white p-4 space-y-2">

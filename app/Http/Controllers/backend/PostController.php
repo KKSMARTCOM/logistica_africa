@@ -69,7 +69,13 @@ class PostController extends Controller
             $data = $request->only(['title', 'content', 'status', 'tags']);
 
             if ($request->hasFile('cover_image')) {
-                $data['cover_image'] = $request->file('cover_image')->store('posts', 'public');
+                $img = $request->file('cover_image');
+                $folderName = $request->title;
+                $uploadFolder = 'assets/images/posts/';
+                folderOpen($uploadFolder);
+                $imgurl = uploadImage($img, $folderName, $uploadFolder);
+
+                $data['cover_image'] = $imgurl;
             }
 
             $data['tags'] = $request->tags ? json_encode($request->tags) : null;
@@ -144,10 +150,17 @@ class PostController extends Controller
             // Gestion de l'image
             if ($request->hasFile('cover_image')) {
                 // Supprimer l'ancienne image si elle existe
-                if ($post->cover_image && Storage::disk('public')->exists($post->cover_image)) {
-                    Storage::disk('public')->delete($post->cover_image);
+                if ($post->cover_image) {
+                    deleteFile($post->cover_image);
                 }
-                $data['cover_image'] = $request->file('cover_image')->store('posts', 'public');
+
+                $img = $request->file('cover_image');
+                $folderName = $request->title;
+                $uploadFolder = 'assets/images/posts/';
+                folderOpen($uploadFolder);
+                $imgurl = uploadImage($img, $folderName, $uploadFolder);
+
+                $data['cover_image'] = $imgurl;
             }
 
             // Gestion des tags
@@ -177,8 +190,8 @@ class PostController extends Controller
             $post = Post::findOrFail($id);
 
             // Supprimer l'image si elle existe
-            if ($post->cover_image && Storage::disk('public')->exists($post->cover_image)) {
-                Storage::disk('public')->delete($post->cover_image);
+            if ($post->cover_image) {
+                deleteFile($post->cover_image);
             }
 
             // Suppression du post

@@ -39,7 +39,7 @@
 
         @if (isset($post->cover_image))
             <div>
-                <img src="{{ asset('storage/' . $post->cover_image ?? 'assets/images/brand/photo.png') }}" alt="Image"
+                <img src="{{ asset($post->cover_image ?? 'assets/images/brand/photo.png') }}" alt="Image"
                     class="img-thumbnail mb-2" width="150">
             </div>
         @endif

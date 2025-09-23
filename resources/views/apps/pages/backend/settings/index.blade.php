@@ -33,8 +33,7 @@
                         </div>
                         <div class="mb-3">
                             <label>Image actuelle</label><br>
-                            <img src="{{ asset('storage/' . $about->about_image ?? 'assets/images/brand/photo.png') }}"
-                                width="150">
+                            <img src="{{ asset($about->about_image ?? 'assets/images/brand/photo.png') }}" width="150">
                             <input type="file" name="about_image" class="form-control mt-2">
                         </div>
                         <div class="mb-3">
@@ -43,7 +42,7 @@
                         </div>
                         <div class="mb-3">
                             <label>Image mission</label><br>
-                            <img src="{{ asset('storage/' . $about->mission_image ?? 'assets/images/brand/photo.png') }}"
+                            <img src="{{ asset($about->mission_image ?? 'assets/images/brand/photo.png') }}"
                                 width="150">
                             <input type="file" name="mission_image" class="form-control mt-2">
                         </div>
@@ -96,7 +95,7 @@
                         </div>
                         <div class="mb-3">
                             <label>Image de fond</label><br>
-                            <img src="{{ asset('storage/' . $banner->background_image ?? 'assets/images/brand/photo.png') }}"
+                            <img src="{{ asset($banner->background_image ?? 'assets/images/brand/photo.png') }}"
                                 width="150">
                             <input type="file" name="background_image" class="form-control mt-2">
                         </div>
@@ -130,7 +129,7 @@
                         @foreach ($carrousels as $carrousel)
                             <div>
                                 <p>{{ $carrousel->title }}</p>
-                                <img src="{{ asset('storage/' . $carrousel->image ?? 'assets/images/brand/photo.png') }}"
+                                <img src="{{ asset($carrousel->image ?? 'assets/images/brand/photo.png') }}"
                                     width="150">
                                 <form action="{{ route('panel.settings.carrousel.destroy', $carrousel->id) }}"
                                     method="POST" class="my-4">

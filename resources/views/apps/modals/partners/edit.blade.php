@@ -35,7 +35,7 @@
                         <label for="image" class="form-label">Logo <span class="text-red">*</span></label>
                         @if ($item->image)
                             <div class="mb-2">
-                                <img src="{{ asset('storage/' . $item->image ?? 'assets/images/brand/photo.png') }}"
+                                <img src="{{ asset($item->image ?? 'assets/images/brand/photo.png') }}"
                                     alt="Image actuelle" class="img-thumbnail" width="100">
                             </div>
                         @endif

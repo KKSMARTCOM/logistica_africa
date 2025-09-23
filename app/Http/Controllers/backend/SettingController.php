@@ -41,13 +41,27 @@ class SettingController extends Controller
         ]);
 
         if ($request->hasFile('about_image')) {
-            Storage::disk('public')->delete($about->about_image);
-            $data['about_image'] = $request->file('about_image')->store('abouts', 'public');
+            deleteFile($about->about_image);
+
+            $img = $request->file('about_image');
+            $folderName = 'a-propos';
+            $uploadFolder = 'assets/images/abouts/';
+            folderOpen($uploadFolder);
+            $imgurl = uploadImage($img, $folderName, $uploadFolder);
+
+            $data['about_image'] = $imgurl;
         }
 
         if ($request->hasFile('mission_image')) {
-            Storage::disk('public')->delete($about->mission_image);
-            $data['mission_image'] = $request->file('mission_image')->store('abouts', 'public');
+            deleteFile($about->mission_image);
+
+            $img = $request->file('mission_image');
+            $folderName = 'a-propos';
+            $uploadFolder = 'assets/images/missions/';
+            folderOpen($uploadFolder);
+            $imgurl = uploadImage($img, $folderName, $uploadFolder);
+
+            $data['mission_image'] = $imgurl;
         }
 
         $about->update($data);
@@ -88,8 +102,15 @@ class SettingController extends Controller
         ]);
 
         if ($request->hasFile('background_image')) {
-            Storage::disk('public')->delete($banner->background_image);
-            $data['background_image'] = $request->file('background_image')->store('banners', 'public');
+            deleteFile($banner->background_image);
+
+            $img = $request->file('background_image');
+            $folderName = 'a-propos';
+            $uploadFolder = 'assets/images/backgrounds/';
+            folderOpen($uploadFolder);
+            $imgurl = uploadImage($img, $folderName, $uploadFolder);
+
+            $data['background_image'] = $imgurl;
         }
 
         $banner->update($data);
@@ -107,7 +128,16 @@ class SettingController extends Controller
             'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
-        $data['image'] = $request->file('image')->store('carrousels', 'public');
+        if ($request->hasFile('image')) {
+            $img = $request->file('image');
+            $folderName = 'carrousel';
+            $uploadFolder = 'assets/images/carrousels/';
+            folderOpen($uploadFolder);
+            $imgurl = uploadImage($img, $folderName, $uploadFolder);
+
+            $data['image'] = $imgurl;
+        }
+
 
         BannerCarrousel::create($data);
 
@@ -167,7 +197,7 @@ class SettingController extends Controller
     {
         $carrousel = BannerCarrousel::findOrFail($id);
 
-        Storage::disk('public')->delete($carrousel->image);
+        deleteFile($carrousel->image);
         $carrousel->delete();
 
         return back()->with('success', 'Image supprimée du carrousel.');
